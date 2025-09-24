@@ -14,7 +14,10 @@ students = [
 
 #寫一個涵式，接受一個數字列表，回傳列表中的最大值
 def find_maximum(numbers):
-    """Return the maximum value from a list of numbers."""
+    """Return the maximum value from a list of numbers.
+
+    numbers: 必須為非空的數字列表，否則會丟出 ValueError 或 TypeError。
+    """
     if not numbers:
         raise ValueError("The list cannot be empty")
     max_value = numbers[0]
@@ -31,11 +34,9 @@ print(find_maximum([3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]))
 # 其他情況則印出數字本身
 def fizz_buzz(n):
     """Return 'Fizz' for multiples of 3, 'Buzz' for multiples of 5, and 'FizzBuzz' for multiples of both."""
-    if n % 3 == 0 and n % 5 == 0:
-        return "FizzBuzz"
-    elif n % 3 == 0:
-        return "Fizz"
-    elif n % 5 == 0:
-        return "Buzz"
-    else:
-        return str(n)
+    result = ''
+    if n % 3 == 0:
+        result += 'Fizz'
+    if n % 5 == 0:
+        result += 'Buzz'
+    return result or str(n)
